@@ -43,7 +43,7 @@ MIN_INACTIVE_HOURS = 0.03  # ~2 minutes
 MAX_INACTIVE_HOURS = 0.08  # ~5 minutes
 
 # Proxy configuration (set USE_PROXY = False to connect directly)
-USE_PROXY = True
+USE_PROXY = False
 PROXY_HOST="93.190.143.48"
 PROXY_PORT="443"
 PROXY_USER="9wfoh8meuu-res-country-KZ-state-1526395-city-1526384-hold-query"
