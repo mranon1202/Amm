@@ -1,3 +1,5 @@
-requests
+requests[socks]
 python-dotenv
 urllib3
+PySocks
+
