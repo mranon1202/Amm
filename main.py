@@ -81,7 +81,7 @@ def get_proxies():
     """Return proxy dict, or empty dict if disabled."""
     if not USE_PROXY:
         return {}
-    proxy_url = f"http://{PROXY_USER}:{PROXY_PASS}@{PROXY_HOST}:{PROXY_PORT}"
+    proxy_url = f"socks5://{PROXY_USER}:{PROXY_PASS}@{PROXY_HOST}:{PROXY_PORT}"
     return {"http": proxy_url, "https": proxy_url}
 
 
