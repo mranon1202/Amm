@@ -4,9 +4,10 @@ import random
 from datetime import datetime, timezone, timedelta
 from urllib.parse import unquote
 import re
+from dotenv import load_dotenv
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-
+load_dotenv()
 # ============================================================
 # CONFIGURATION - ALL SETTINGS AT THE TOP
 # ============================================================
@@ -44,10 +45,11 @@ MAX_INACTIVE_HOURS = 0.08  # ~5 minutes
 
 # Proxy configuration (set USE_PROXY = False to connect directly)
 USE_PROXY = True
-PROXY_HOST="93.190.143.48"
-PROXY_PORT="443"
-PROXY_USER="9wfoh8meuu-res-country-KZ-state-1526395-city-1526384-hold-query"
-PROXY_PASS="Uw1XPq1Grl81IlPG"
+PROXY_HOST = os.getenv("PROXY_HOST")
+PROXY_PORT = os.getenv("PROXY_PORT")
+PROXY_USER = os.getenv("PROXY_USER")
+PROXY_PASS = os.getenv("PROXY_PASS")
+
 
 # ============================================================
 # DO NOT MODIFY BELOW THIS LINE
