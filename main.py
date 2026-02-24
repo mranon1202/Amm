@@ -23,7 +23,7 @@ COOKIE_STRING = os.getenv("COOKIE_STRING", "")
 AUTO_MARKET_CONFIG_ID = "cmlpz9rqn0198ky04orxmcaqt"
 
 # Multi-bet stacking amounts (caps for dynamic sizing)
-MULTI_BET_AMOUNTS = [20000, 25000, 25000]
+MULTI_BET_AMOUNTS = [20000, 6000, 5000]
 MULTI_BET_DELAY = 3        # Seconds between each stacked bet
 DYNAMIC_SLIPPAGE = 0.35    # Max allowed slippage (35%)
 BALANCE_USAGE_PERCENT = 0.99
