@@ -34,7 +34,7 @@ BUY_RETRY_SHRINK = 0.80
 # Bet configuration
 BET_TIMING_SECONDS = 59  # Place bet when this many seconds remaining
 POLL_INTERVAL = 0.5      # Ultra-fast polling (0.5 seconds)
-MIN_BALANCE = 30000         # Stop bot if balance falls below this
+MIN_BALANCE = 7200000        # Stop bot if balance falls below this
 
 # Active/Inactive cycle configuration
 MIN_MARKETS_PER_SESSION = 25
