@@ -4,10 +4,9 @@ import random
 from datetime import datetime, timezone, timedelta
 from urllib.parse import unquote
 import re
-from dotenv import load_dotenv
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-load_dotenv()
+
 # ============================================================
 # CONFIGURATION - ALL SETTINGS AT THE TOP
 # ============================================================
@@ -24,7 +23,7 @@ COOKIE_STRING = os.getenv("COOKIE_STRING", "")
 AUTO_MARKET_CONFIG_ID = "cmlpz9rqn0198ky04orxmcaqt"
 
 # Multi-bet stacking amounts (caps for dynamic sizing)
-MULTI_BET_AMOUNTS = [9000, 20000, 30000]
+MULTI_BET_AMOUNTS = [20000, 25000, 25000]
 MULTI_BET_DELAY = 3        # Seconds between each stacked bet
 DYNAMIC_SLIPPAGE = 0.35    # Max allowed slippage (35%)
 BALANCE_USAGE_PERCENT = 0.99
@@ -45,11 +44,10 @@ MAX_INACTIVE_HOURS = 0.08  # ~5 minutes
 
 # Proxy configuration (set USE_PROXY = False to connect directly)
 USE_PROXY = True
-PROXY_HOST = os.getenv("PROXY_HOST")
-PROXY_PORT = os.getenv("PROXY_PORT")
-PROXY_USER = os.getenv("PROXY_USER")
-PROXY_PASS = os.getenv("PROXY_PASS")
-
+PROXY_HOST="syd.socks.privado.io"
+PROXY_PORT="1080"
+PROXY_USER="pv55022iitlx"
+PROXY_PASS="rowbxflnaiuv"
 
 # ============================================================
 # DO NOT MODIFY BELOW THIS LINE
@@ -81,10 +79,15 @@ session = None
 
 def get_proxies():
     """Return proxy dict, or empty dict if disabled."""
-    if not USE_PROXY:
-        return {}
-    proxy_url = f"socks5://{PROXY_USER}:{PROXY_PASS}@{PROXY_HOST}:{PROXY_PORT}"
-    return {"http": proxy_url, "https": proxy_url}
+    if USE_PROXY:
+        if PROXY_USER and PROXY_PASS:
+            proxy_url = f"socks5h://{PROXY_USER}:{PROXY_PASS}@{PROXY_HOST}:{PROXY_PORT}"
+        else:
+            proxy_url = f"socks5h://{PROXY_HOST}:{PROXY_PORT}"
+        proxies = {"http": proxy_url, "https": proxy_url}
+        print(f"🌐 SOCKS5 Proxy enabled: {PROXY_HOST}:{PROXY_PORT}")
+    else:
+        proxies = {}
 
 
 def init_session():
